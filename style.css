@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600&family=Nunito:wght@300;400;500&family=Open+Sans:wght@300;400;500;600&family=Poppins:wght@300;400;500&family=Raleway:wght@400;500;600&display=swap');
+
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+:root{
+    --fsize-24:24px;
+    --fsize-22:22px;
+    --fsize-18:18px;
+    --fsize-16:16px;
+    --fsize-14:14px;
+    --fsize-13:13px;
+    --fsize-12:12px;
+
+    --fweight-300:300;
+    --fweight-400:400;
+    --fweight-500:500;
+    --fweight-600:600;
+
+    --color-dark:#332D2D;
+    --color-light:#FBFBFB;
+
+}
+
+/* reusable styles */
+.heading-title{
+    font-size: var(--fsize-16);
+    font-weight: var(--fweight-600);
+}
+
+.list-content{
+    font-size: var(--fsize-13);
+    margin-bottom: 8px;
+}
+
+.input-label{
+    font-size: var(--fsize-13);
+    font-weight: var(--fweight-600);
+}
+
+.input-text{
+    font-size: var(--fsize-14);
+    font-weight: var(--fweight-500);
+
+}
+/*  */
+
+.home-main-container{
+    height: 100vh;
+    font-family: 'Montserrat', sans-serif;
+    background-color: var(--color-light);
+}
+
+
+.nav-container{
+    color: var(--color-light);
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+}
+
+.page-title{
+    font-size: var(--fsize-18);
+    font-weight: var(--fweight-500);
+}
+.nav-links a{
+    padding: 5px 10px;
+    font-size: var(--fsize-14);
+    font-weight: var(--fweight-500);
+    color: var(--color-light);
+}
+
+.admin-icon{
+    font-size: var(--fsize-24);
+    font-weight: 100;
+}
+
+
+@media screen and (max-width:768px){
+    :root{
+        --fsize-18:16px;
+        --fsize-16:14px;
+        --fsize-14:12px;
+    }
+}

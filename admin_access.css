@@ -1,0 +1,60 @@
+.main-container {
+    font-family: 'Montserrat', sans-serif;
+    background-color: var(--color-light);
+}
+
+
+.content-section{
+    z-index:0;
+
+}
+.dashboard-container{
+    height: 90vh;
+    position: sticky;
+    top: 53px;
+}
+
+.text-danger{
+    font-size: var(--fsize-13);
+    margin-bottom: 0;
+    margin-top: 3px;
+
+}
+
+.text-success{
+    font-size: var(--fsize-13);
+    margin-bottom: 0;
+    margin-top: 3px;
+    color: #14A44D !important;
+}
+
+
+.confirm-del-title{
+    font-size: var(--fsize-14);
+}
+
+.cofirm-del-msg{
+    font-size: var(--fsize-13);
+
+}
+
+th , td{
+    padding: 5px;
+    border: 1px solid lightgrey;
+}
+
+th{
+    font-size: var(--fsize-14);
+}
+
+td{
+    font-size: var(--fsize-14);
+}
+
+@media screen and (max-width:768px){
+
+    .dashboard-container{
+        margin-top: 20px;
+        height: fit-content;
+    }
+}
