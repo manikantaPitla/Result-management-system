@@ -16,12 +16,12 @@
     <div class="home-main-container">
         <nav class="py-2 px-3 d-block d-md-flex flex-row justify-content-between nav-container bg-primary">
             <div class="nav-left d-flex  align-items-center justify-content-center">
-                <h3 class="m-0 page-title">RESULTS MANAGEMENT SYSTEM</h3>
+                <a href="index.html" class="m-0 page-title text-white">RESULTS MANAGEMENT SYSTEM</a>
             </div>
             <hr class="d-md-none mt-2 mb-1  bg-white">
             <div class="nav-right d-flex flex-row align-items-center justify-content-center">
                 <div class="nav-links d-flex flex-row">
-                    <a href="">HOME</a>
+                    <a href="index.html">HOME</a>
                     <a href="">RESULTS</a>
                     <a href="">ABOUT</a>
                     <a href="">CONTACT</a>
@@ -41,7 +41,7 @@
             </div>
         </nav>
          <!--login form Modal -->
-         <div class="modal fade text-dark px-5 pt-5" id="loginOrRegister" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade text-dark pt-5" id="loginOrRegister" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
             <div class="modal-content pb-4">
                 <div class="modal-header px-4 d-flex align-items-center">
@@ -61,19 +61,22 @@
                             <div class="px-4">
                                 <form class="form">
                                     <div class="form-outline mb-3">
-                                        <input type="text" id="loginInputName" class="form-control"/>
-                                        <label class="form-label" for="loginInputName">Userame</label>
+                                        <input type="text" id="loginUserName" class="form-control input-text"/>
+                                        <label class="form-label input-text" for="loginUserName">Userame</label>
                                     </div>
        
                                     <div class="form-outline mb-3">
-                                        <input type="password" id="loginInputPassword" class="form-control"/>
-                                        <label class="form-label" for="loginInputPassword">Password</label>
+                                        <input type="password" id="loginUserPassword" class="form-control input-text"/>
+                                        <label class="form-label input-text" for="loginUserPassword">Password</label>
                                     </div>
                                     <div>
-                                        <p>Forgot password?</p>
+                                        <p class="text-danger list-content" id="loginErrMsg"></p>
+                                    </div>
+                                    <div>
+                                        <p class="list-content mb-3">Forgot password?</p>
                                     </div>
                                     <div class="text-center">
-                                        <button class="btn btn-primary w-100">Login</button>
+                                        <button class="btn btn-primary w-100" id="loginBtn">Login</button>
                                     </div>
                                 </form>
                             </div>
@@ -82,21 +85,24 @@
                             <div class="px-4">
                                 <form class="form">
                                     <div class="form-outline mb-3">
-                                        <input type="text" id="registerUsername" class="form-control"/>
-                                        <label class="form-label" for="registerUsername">Username</label>
+                                        <input type="text" id="registerUsername" class="form-control input-text"/>
+                                        <label class="form-label input-text" for="registerUsername">Username</label>
                                     </div>
        
                                     <div class="form-outline mb-3">
-                                        <input type="password" id="newPassowrd" class="form-control"/>
-                                        <label class="form-label" for="newPassowrd">New Password</label>
+                                        <input type="password" id="newPassword" class="form-control input-text"/>
+                                        <label class="form-label input-text" for="newPassword">New Password</label>
                                     </div>
     
                                     <div class="form-outline mb-3">
-                                        <input type="password" id="confirmPassword" class="form-control"/>
-                                        <label class="form-label" for="confirmPassword">Confirm Password</label>
+                                        <input type="password" id="confirmPassword" class="form-control input-text"/>
+                                        <label class="form-label input-text" for="confirmPassword">Confirm Password</label>
+                                    </div>
+                                    <div>
+                                        <p class="text-danger list-content" id="registerErrMsg"></p>
                                     </div>
                                     <div class="text-center">
-                                        <button class="btn btn-primary w-100">Register Now</button>
+                                        <button class="btn btn-primary w-100" id="registerNewLoginBtn">Register Now</button>
                                     </div>
                                 </form>
                             </div>
@@ -132,14 +138,13 @@
                                 <li class="list-content">As the website is for demo purpose do not enter your personal information or passwords.</li>
                             </ul>
                         </div>
-                        <a href="admin_access.html">Get Access</a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
     <!-- Javascript file -->
-    <!-- <script src="script.js"></script> -->
+    <script src="script.js"></script>
     <script src="mdb.min.js"></script>
 </body>
 </html>

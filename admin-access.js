@@ -59,9 +59,14 @@ let twoChemPractErrMsg = document.getElementById("twoChemPractErrMsg");
 
 let marksErrMsg = document.getElementById("marksErrMsg");  
 
+
+document.getElementById("logoutBtn").addEventListener("click", () => {
+    localStorage.removeItem("loginUser");
+    window.location.href = "index.html";
+});
+
 let studentId = 1010;
 function updateData(studentInfo, parsedYearOneMarks, parsedYearTwoMarks){
-    // let slSub = [yearOneSecondLang.value, yearTwoSecondLang.value]
 
     let totalMarks = 0;
 
@@ -170,16 +175,7 @@ function updateData(studentInfo, parsedYearOneMarks, parsedYearTwoMarks){
         alert("An error occurred while fetching the data: " + error.message);
         console.error(error);
     });
-      
-    // .catch(error => {
-    //     console.error('Error:', error);
-    //     alert('Error:', error);
-    // });
-
-
-    
-
-    
+  
 }
 
 let errMsgEl = []
@@ -246,10 +242,7 @@ function getInputValues(){
 
     if(fieldEmpty){
         if(c1 && c2 && c3 && c4){
-            
-            // setTimeout(function() {
-            //     marksErrMsg.textContent = '';
-            // }, 10000);        
+                   
             if(HallticketNumber.value.length === 10){
                 updateData(studentInfo, parsedYearOneMarks, parsedYearTwoMarks);
             }else{
@@ -381,7 +374,6 @@ let getMethod = {
     method: "GET"
 }
 
-// let hostUrl = "https://kind-plum-woolens.cyclic.app/studentData/1987654323";
 let hostUrl = "https://kind-plum-woolens.cyclic.app/studentData";
 
 
