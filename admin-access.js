@@ -369,34 +369,18 @@ delbtn.addEventListener("click", (e)=>{
 
 })
 
-// method get --------------------------------------------------------------------
-let getMethod = {
-    method: "GET"
-}
-
-let hostUrl = "https://kind-plum-woolens.cyclic.app/studentData";
-
-
-fetch(hostUrl, getMethod)
-.then((response)=>{
-    return response.json();
-})
-.then((jsonData)=>{
-    console.log(jsonData);
-})
-
 
 // method put or update ----------------------------------------------------------------
 
 
 //correct code
-let updateBody = {
-    student_details:{
-    father_name: "Raj"
-}
-  };
+// let updateBody = {
+//     student_details:{
+//     father_name: "Raj"
+// }
+//   };
 
-    let updateUrl = "https://kind-plum-woolens.cyclic.app/studentData/1987654321"
+//     let updateUrl = "https://kind-plum-woolens.cyclic.app/studentData/1987654321"
   
 //   fetch(updateUrl)
 //     .then((response) => response.json())
@@ -577,6 +561,69 @@ accResSubmitBtn.addEventListener("click",()=>{
         resReqErrMsg.textContent = "Please enter hallticket number.";
     }
 })
+
+
+
+//student list 
+
+function appendEachStudent(eachStudent, serialNumber){
+    let studentEachListContainer = document.getElementById('studentEachListContainer');
+
+    let mainDiv = document.createElement("div");
+    mainDiv.classList.add("my-2","row", "input-label", "m-0")
+    studentEachListContainer.appendChild(mainDiv);
+
+    let serialNoEl = document.createElement("div");
+    let stuNameEl = document.createElement("div");
+    let stuMarksEl = document.createElement("div");
+    let stuGradeEl = document.createElement("div");
+
+    mainDiv.appendChild(serialNoEl);
+    mainDiv.appendChild(stuNameEl);
+    mainDiv.appendChild(stuMarksEl);
+    mainDiv.appendChild(stuGradeEl);
+
+    serialNoEl.classList.add("text-center", "col-2", "col-md-3");
+    stuNameEl.classList.add("text-left", "col-4", "col-md-3",);
+    stuMarksEl.classList.add("text-center", "col-3");
+    stuGradeEl.classList.add("text-center", "col-3");
+
+    let serialNo = document.createElement("p");
+    serialNo.textContent = serialNumber;
+    serialNoEl.appendChild(serialNo);
+
+    let stuName = document.createElement("p");
+    stuName.textContent = eachStudent.name;
+    stuNameEl.appendChild(stuName);
+    
+    let stuMarks =  document.createElement("p");
+    stuMarks.textContent = eachStudent.result.marks;
+    stuMarksEl.appendChild(stuMarks);
+
+    let stuGrade =  document.createElement("p");
+    stuGrade.textContent = eachStudent.result.grade;
+    stuGradeEl.appendChild(stuGrade);
+
+}
+
+function loopStudentData(){
+    let getMethod = {
+        method: "GET"
+    }
+    let hostUrl = "https://kind-plum-woolens.cyclic.app/studentData";
+    
+    fetch(hostUrl, getMethod)
+    .then((response)=>{
+        return response.json();
+    })
+    .then((jsonData)=>{
+        console.log(jsonData);
+        for(let i = 0; i < jsonData.length; i++){
+            appendEachStudent(jsonData[i], (i + 1));
+        }
+    })
+}
+loopStudentData();
 
 
 

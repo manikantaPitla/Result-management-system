@@ -46,7 +46,11 @@
     font-weight: var(--fweight-500);
 
 }
-/*  */
+/* ------------------ */
+
+a{
+    cursor: pointer;
+}
 
 .home-main-container{
     height: 100vh;

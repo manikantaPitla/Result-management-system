@@ -76,7 +76,6 @@ function validateLoginDetails(){
         if (condition) {
             localStorage.setItem("loginUser", JSON.stringify({ username: item.username }));
             window.location.href = 'admin_access.html';
-            loginErrMsg.textContent = "";
             return true;
         }else{
             console.log(condition);
