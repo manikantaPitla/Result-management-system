@@ -9,6 +9,7 @@ let confirmPassword = document.getElementById("confirmPassword");
 
 let registerBtn = document.getElementById("registerNewLoginBtn");
 
+
 //checking if user is logged In
 window.addEventListener("load", () => {
     let loginUser = localStorage.getItem("loginUser");
@@ -16,6 +17,7 @@ window.addEventListener("load", () => {
         window.location.href = 'admin_access.html';
     }
 });
+
 
 //initial setting one user and check other login details
 let credentialsList = JSON.parse(localStorage.getItem("loginList")) || [{ username: "admin_login", password: "admin@123" }];

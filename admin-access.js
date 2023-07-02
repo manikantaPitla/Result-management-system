@@ -563,7 +563,6 @@ accResSubmitBtn.addEventListener("click",()=>{
 })
 
 
-
 //student list 
 
 function appendEachStudent(eachStudent, serialNumber){

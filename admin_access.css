@@ -3,7 +3,6 @@
     background-color: var(--color-light);
 }
 
-
 .content-section{
     z-index:0;
 
@@ -50,6 +49,7 @@ th{
 td{
     font-size: var(--fsize-14);
 }
+
 
 @media screen and (max-width:768px){
 
