@@ -50,7 +50,31 @@ td{
     font-size: var(--fsize-14);
 }
 
+.select-container{
+    cursor: pointer;
+    position: relative;
+}
 
+.select-main-container label{
+    width: 100%;
+    padding: 5px 10px;
+}
+
+.select-main-container label:hover{
+    background-color: aliceblue;
+}
+
+.option-container{
+    display: none !important;
+    position: absolute;
+    top: 100%;
+    background-color: white;
+    z-index: 1;
+}
+
+.select-container:hover .option-container{
+    display: block !important;
+}
 @media screen and (max-width:768px){
 
     .dashboard-container{

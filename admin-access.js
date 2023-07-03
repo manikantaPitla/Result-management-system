@@ -606,6 +606,7 @@ function appendEachStudent(eachStudent, serialNumber){
 }
 
 function loopStudentData(){
+    document.getElementById("stuListSpinner").classList.remove("d-none")
     let getMethod = {
         method: "GET"
     }
@@ -616,12 +617,15 @@ function loopStudentData(){
         return response.json();
     })
     .then((jsonData)=>{
+
         console.log(jsonData);
         for(let i = 0; i < jsonData.length; i++){
             appendEachStudent(jsonData[i], (i + 1));
         }
+        document.getElementById("stuListSpinner").classList.add("d-none")
     })
 }
+
 loopStudentData();
 
 
