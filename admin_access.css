@@ -75,10 +75,18 @@ td{
 .select-container:hover .option-container{
     display: block !important;
 }
+
 @media screen and (max-width:768px){
 
     .dashboard-container{
         margin-top: 20px;
         height: fit-content;
+    }
+
+}
+
+@media screen and (max-width:576px){
+    .stu-list-card{
+        overflow-x: scroll;
     }
 }

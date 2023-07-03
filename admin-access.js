@@ -573,23 +573,30 @@ function appendEachStudent(eachStudent, serialNumber){
     studentEachListContainer.appendChild(mainDiv);
 
     let serialNoEl = document.createElement("div");
+    let stuHtEl = document.createElement("div");
     let stuNameEl = document.createElement("div");
     let stuMarksEl = document.createElement("div");
     let stuGradeEl = document.createElement("div");
 
     mainDiv.appendChild(serialNoEl);
+    mainDiv.appendChild(stuHtEl);
     mainDiv.appendChild(stuNameEl);
     mainDiv.appendChild(stuMarksEl);
     mainDiv.appendChild(stuGradeEl);
 
-    serialNoEl.classList.add("text-center", "col-2", "col-md-3");
-    stuNameEl.classList.add("text-left", "col-4", "col-md-3",);
-    stuMarksEl.classList.add("text-center", "col-3");
-    stuGradeEl.classList.add("text-center", "col-3");
+    serialNoEl.classList.add("text-center", "col-2", "col-sm-2","pl-0","pr-2", "px-sm-2");
+    stuHtEl.classList.add("text-center", "col-3", "col-sm-3","pl-0","pr-2", "px-sm-2");
+    stuNameEl.classList.add("text-left","text-sm-center", "col-3", "col-sm-3","pl-0","pr-2", "px-sm-2");
+    stuMarksEl.classList.add("text-center", "col-2", "col-sm-2","pl-0","pr-2", "px-sm-2");
+    stuGradeEl.classList.add("text-center", "col-2", "col-sm-2","pl-0","pr-2", "px-sm-2");
 
     let serialNo = document.createElement("p");
     serialNo.textContent = serialNumber;
     serialNoEl.appendChild(serialNo);
+
+    let stuHtNum =  document.createElement("p");
+    stuHtNum.textContent = eachStudent.hallticket;
+    stuHtEl.appendChild(stuHtNum);
 
     let stuName = document.createElement("p");
     stuName.textContent = eachStudent.name;
@@ -602,6 +609,7 @@ function appendEachStudent(eachStudent, serialNumber){
     let stuGrade =  document.createElement("p");
     stuGrade.textContent = eachStudent.result.grade;
     stuGradeEl.appendChild(stuGrade);
+
 
 }
 
