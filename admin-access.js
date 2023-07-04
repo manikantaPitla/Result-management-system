@@ -59,6 +59,15 @@ let twoChemPractErrMsg = document.getElementById("twoChemPractErrMsg");
 
 let marksErrMsg = document.getElementById("marksErrMsg");  
 
+// checking if user logged in 
+window.addEventListener("load", () => {
+    let loginUser = localStorage.getItem("loginUser");
+    if (!loginUser) {
+        alert("Please login to continue!")
+        window.location.href = 'index.html';
+    }
+});
+
 
 document.getElementById("logoutBtn").addEventListener("click", () => {
     localStorage.removeItem("loginUser");

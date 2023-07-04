@@ -70,6 +70,7 @@ td{
     top: 100%;
     background-color: white;
     z-index: 1;
+    padding-bottom: 20px;
 }
 
 .select-container:hover .option-container{
