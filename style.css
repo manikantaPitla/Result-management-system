@@ -22,7 +22,6 @@
 
     --color-dark:#332D2D;
     --color-light:#FBFBFB;
-
 }
 
 /* reusable styles */
@@ -46,7 +45,7 @@
     font-weight: var(--fweight-500);
 
 }
-/* -------------------- */
+/* --------------------*/
 
 a{
     cursor: pointer;
@@ -56,13 +55,13 @@ a{
     height: 100vh;
     font-family: 'Montserrat', sans-serif;
     background-color: var(--color-light);
+    display: flex;
+    flex-direction: column;
 }
 
 
 .nav-container{
     color: var(--color-light);
-    position: sticky;
-    top: 0;
     width: 100%;
     z-index: 1;
 }

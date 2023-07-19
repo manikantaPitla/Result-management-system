@@ -110,523 +110,529 @@
             </div>
         </div>
         <div class="content-section">
-            <div class="row m-0">
-                <!-- dashboard -->
-                <div class="col-12 col-md-4 col-lg-3 pl-md-0 pr-md-5 ">
-                    <div class="card shadow-2 dashboard-container">
-                        <div class=" p-3">
-                            <h5 class="heading-title">DASHBOARD</h5>
+            <!-- dashboard -->
+            <div class="card shadow-2 dashboard-container">
+                <div class=" p-3">
+                    <h5 class="heading-title">DASHBOARD</h5>
+                </div>
+                <div class="dashboard-content">
+                    <div class="nav flex-column nav-pills text-center m-0"  id="v-pills-tab" role="tablist"  aria-orientation="vertical"   >
+                        <div class="row m-0 p-0">
+                            <div class=" col-6 col-md-12 px-0 px-md-2">
+                                <a class="nav-link active mt-0 px-2" id="postResultsBtn" data-mdb-toggle="pill" href="#postResultsContainer" role="tab" aria-controls="postResultsContainer" aria-selected="true">
+                                    Post results
+                                </a>
+                            </div>
+                            <div class="col-6 col-md-12  px-0 px-md-2">
+                                <a class="nav-link mt-0 px-2" id="updateResultsBtn" data-mdb-toggle="pill"  href="#updateResultsContainer"  role="tab"  aria-controls="updateResultsContainer"  aria-selected="false">
+                                    Update results
+                                </a>
+                            </div>
+                            <div class="col-6 col-md-12  px-0 px-md-2">
+                                <a class="nav-link mt-0 px-2 " id="accessResultsBtn" data-mdb-toggle="pill"  href="#accessResultsContainer"  role="tab"  aria-controls="accessResultsContainer"  aria-selected="false">  
+                                    Access results
+                                </a>
+                            </div>
+                            <div class="col-6 col-md-12  px-0 px-md-2">
+                                <a class="nav-link mt-0 px-2" id="deleteResultsBtn" data-mdb-toggle="pill"  href="#deleteResultsContainer"  role="tab"  aria-controls="deleteResultsContainer"  aria-selected="false">  
+                                    Delete results
+                                </a>
+                            </div>
+                            <div class="col-6 col-md-12  px-0 px-md-2">
+                                <a class="nav-link mt-0 px-2" id="studentListBtn" data-mdb-toggle="pill"  href="#studentListContainer"  role="tab"  aria-controls="deleteResultsContainer"  aria-selected="false">  
+                                    Students List
+                                </a>
+                            </div>
                         </div>
-                        <div class="dashboard-content">
-                           <div class="nav flex-column nav-pills text-center m-0"  id="v-pills-tab" role="tablist"  aria-orientation="vertical"   >
-                                <div class="row m-0 p-0">
-                                    <div class=" col-6 col-md-12 px-0 px-md-2">
-                                        <a class="nav-link active mt-0 px-2" id="postResultsBtn" data-mdb-toggle="pill" href="#postResultsContainer" role="tab" aria-controls="postResultsContainer" aria-selected="true">
-                                            Post results
-                                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="content-container">
+                <div class="row"> 
+                    <!-- Tab content -->
+                    <div class="tab-content" id="v-pills-tabContent">
+                        <div  class="tab-pane fade show active"  id="postResultsContainer"  role="tabpanel"  aria-labelledby="postResultsBtn">
+                            <div class="post-results-content-section w-100">
+                                <div class="card p-3 shadow-2 ">
+                                    <form>
+                                        <div>
+                                            <!-- Student details -->
+                                            <div class="row">
+                                                <div class="mb-3 col-12">
+                                                    <h5 class="heading-title">Enter Student Details</h5>
+                                                </div>
+                                                <!-- student name -->
+                                                <div class="col-12 col-sm-6 col-lg-4 mb-4">
+                                                    <label class="m-0 input-label" for="studentName">Student Name</label>
+                                                    <input type="text" class="form-control input-text" id="studentName" placeholder="Enter full name">
+                                                    <p class="text-danger" id="stuNameErrMsg"></p>
+                                                </div>
+                                                <!-- father name -->
+                                                <div class="col-12 col-sm-6 col-lg-4 mb-4">
+                                                    <label class="m-0 input-label" for="fatherName">Father Name</label>
+                                                    <input type="text" class="form-control input-text" id="fatherName" placeholder="Enter father name">
+                                                    <p class="text-danger" id="fatherNameErrMsg"></p>
+                                                </div> 
+                                                <!-- mother name -->
+                                                <div class="col-12 col-sm-6 col-lg-4 mb-4">
+                                                    <label class="m-0 input-label" for="motherName">Mother Name</label>
+                                                    <input type="text" class="form-control input-text" id="motherName" placeholder="Enter mother name">
+                                                    <p class="text-danger" id="motherNameErrMsg"></p>
+                                                </div>
+                                                <!-- date of birth -->
+                                                <div class="col-12 col-sm-6 col-lg-4 mb-4">
+                                                    <label class="m-0 input-label" for="dateOfBirth">Date Of Birth</label>
+                                                    <input type="date" class="form-control input-text" id="dateOfBirth">
+                                                    <p class="text-danger" id="dobErrMsg"></p>
+                                                </div>
+                                                <!-- selected course -->
+                                                <div class="col-12 col-sm-6 col-lg-4 mb-4 ">
+                                                    <label class="m-0 input-label" for="courseSelectField">Course</label>
+                                                    <div class="p-0 form-control" style="overflow: hidden;">
+                                                        <select  id="courseSelectField" class="input-text w-100 m-0 pl-3" style="border: none;height: 100%;">
+                                                            <option value="MPC" selected>MPC</option>
+                                                            <option value="BiPC">BiPC</option>
+                                                            <option value="CEC">CEC</option>
+                                                            <option value="HEC">HEC</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <!-- month and year of pass -->
+                                                <div class="col-12 col-sm-6 col-lg-4 mb-4">
+                                                    <label class="m-0 input-label" for="monthYearOfPass">Month & Year of passing</label>
+                                                    <input type="text" class="form-control input-text" id="monthYearOfPass" placeholder="Ex: MARCH 2024">
+                                                    <p class="text-danger" id="monthYearPassErrMsg"></p>
+                                                </div>
+                                                <div class="col-12 col-sm-6 col-lg-4 mb-4 ">
+                                                    <label class="m-0 input-label" for="languageMedium">Medium</label>
+                                                    <div class="p-0 form-control" style="overflow: hidden;">
+                                                        <select name="" id="languageMedium" class="input-text w-100 m-0 pl-3" style="border: none;height: 100%;">
+                                                            <option value="ENGLISH" selected>ENGLISH</option>
+                                                            <option value="URDU">URDU</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                
+                                            </div>
+                                            <hr class="hr">
+                                            <!--1st year Student marks -->
+                                            <div class="row">
+                                                <div class="mb-3 col-12">
+                                                    <h5 class="heading-title">Enter Marks Obtained</h5>
+                                                </div>
+                                                <!--Hallticket Number-->
+                                                <div class="row m-0 p-0 mb-4">
+                                                    <div class="d-block col-12 col-lg-4">
+                                                        <label class="m-0 input-label" for="HallticketNumber">Hallticket Number</label>
+                                                        <input type="text" maxlength="10" class="form-control input-text" id="HallticketNumber" placeholder="Enter hallticket number">
+                                                        <p class="text-danger" id="htErrMsg"></p>
+                                                    </div> 
+                                                </div>
+                                                <div class="mb-3 col-12">
+                                                    <h5 class="heading-title">&#8544; YEAR MARKS</h5>
+                                                </div>
+                                                <!--1st year Student marks -->
+                                                <!-- English -->
+                                                <div class="d-block col-12 col-sm-6 col-lg-3 mb-4">
+                                                    <label class="m-0 input-label" for="yearOneEnglish">English</label>
+                                                    <input type="text" maxlength="3" class="form-control input-text" id="yearOneEnglish" placeholder="Marks">
+                                                    <p class="text-danger" id="oneEngErrMsg"></p>
+                                                </div>
+                                                <!-- Second language -->
+                                                <div class="d-block col-12 col-sm-6 col-lg-6 mb-4">
+                                                    <label class="m-0 input-label" for="yearOneSecondLang">Second language</label>
+                                                    <div class="form-control d-flex flex-row justify-content-evenly p-0" style="overflow: hidden;">
+                                                        <select id="yearOneSecondLang" style="border: none;height: 100%;" class="w-50 px-2 input-text mr-2">
+                                                            <option value="Sanskrit" selected>Sanskrit</option>
+                                                            <option value="Urdu">Urdu</option>
+                                                        </select>
+                                                        <input id="yearOneSLMarks" maxlength="3" type="text" class="input-text pl-3 w-50 shadow-inner form-control" placeholder="Marks" style="border: none;height: 100%;">
+                                                    </div>
+                                                    <p class="text-danger" id="oneSlErrMsg"></p>
+                                                </div>
+                                                <!-- Maths A -->
+                                                <div class="d-block col-12 col-sm-6 col-lg-3 mb-4">
+                                                    <label class="m-0 input-label" for="yearOneMathsA">Maths A</label>
+                                                    <input type="text" maxlength="2" class="form-control input-text" id="yearOneMathsA" placeholder="Marks">
+                                                    <p class="text-danger" id="oneMaErrMsg"></p>
+                                                </div>
+                                                <!-- Maths B -->
+                                                <div class="d-block col-12 col-sm-6 col-lg-3 mb-4">
+                                                    <label class="m-0 input-label" for="yearOneMathsB">Maths B</label>
+                                                    <input type="text" maxlength="2" class="form-control input-text" id="yearOneMathsB" placeholder="Marks">
+                                                    <p class="text-danger" id="oneMbErrMsg"></p>
+                                                </div>
+                                                <!-- Physics -->
+                                                <div class="d-block col-12 col-sm-6 col-lg-3 mb-4">
+                                                    <label class="m-0 input-label" for="yearonePhysics">Physics</label>
+                                                    <input type="text" maxlength="2" class="form-control input-text" id="yearonePhysics" placeholder="Marks">
+                                                    <p class="text-danger" id="onePhyErrMsg"></p>
+                                                </div>
+                                                <!-- Chemistry -->
+                                                <div class="d-block col-12 col-sm-6 col-lg-3 mb-4">
+                                                    <label class="m-0 input-label" for="yearoneChemistry">Chemistry</label>
+                                                    <input type="text" maxlength="2" class="form-control input-text" id="yearoneChemistry" placeholder="Marks">
+                                                    <p class="text-danger" id="oneChemErrMsg"></p>
+                                                </div>
+                                            </div>
+                                            <hr class="hr">
+                                            <!--2st year Student marks -->
+                                            <div class="row">
+                                                <div class="mb-3 col-12">
+                                                    <h5 class="heading-title">&#8545; YEAR MARKS</h5>
+                                                </div>
+                                                <!-- English -->
+                                                <div class="d-block col-12 col-sm-6 col-sm-6 col-lg-3 mb-4">
+                                                    <label class="m-0 input-label" for="yearTwoEnglish">English</label>
+                                                    <input type="text" maxlength="3" class="form-control input-text" id="yearTwoEnglish" placeholder="Marks">
+                                                    <p class="text-danger" id="twoEngErrMsg"></p>
+                                                </div>
+                                                <!-- Second language -->
+                                                <div class="d-block col-12 col-sm-6 col-lg-6 mb-4">
+                                                    <label class="m-0 input-label" for="yearTwoSecondLang">Second language</label>
+                                                    <div class="form-control d-flex flex-row justify-content-evenly p-0" style="overflow: hidden;">
+                                                        <select id="yearTwoSecondLang" style="border: none;height: 100%;" class="w-50 px-2 input-text mr-2">
+                                                            <option value="Sanskrit" selected>Sanskrit</option>
+                                                            <option value="Urdu">Urdu</option>
+                                                        </select>
+                                                        <input id="yearTwoSLMarks" maxlength="3" type="text" class="input-text pl-3 w-50 shadow-inner form-control" placeholder="Marks" style="border: none;height: 100%;">
+                                                    </div>
+                                                    <p class="text-danger" id="twoSlErrMsg"></p>
+                                                </div>
+                                                <!-- Maths A -->
+                                                <div class="d-block col-12 col-sm-6 col-lg-3 mb-4">
+                                                    <label class="m-0 input-label" for="yearTwoMathsA">Maths A</label>
+                                                    <input type="text" maxlength="2" class="form-control input-text" id="yearTwoMathsA" placeholder="Marks">
+                                                    <p class="text-danger" id="twoMaErrMsg"></p>
+                                                </div>
+                                                <!-- Maths B -->
+                                                <div class="d-block col-12 col-sm-6 col-lg-3 mb-4">
+                                                    <label class="m-0 input-label" for="yearTwoMathsB">Maths B</label>
+                                                    <input type="text" maxlength="2" class="form-control input-text" id="yearTwoMathsB" placeholder="Marks">
+                                                    <p class="text-danger" id="twoMbErrMsg"></p>
+                                                </div>
+                                                <!-- Physics -->
+                                                <div class="d-block col-12 col-sm-6 col-lg-3 mb-4">
+                                                    <label class="m-0 input-label" for="yearTwoPhysics">Physics</label>
+                                                    <input type="text" maxlength="2" class="form-control input-text" id="yearTwoPhysics" placeholder="Marks">
+                                                    <p class="text-danger" id="twoPhyErrMsg"></p>
+                                                </div>
+                                                <!-- Chemistry -->
+                                                <div class="d-block col-12 col-sm-6 col-lg-3 mb-4">
+                                                    <label class="m-0 input-label" for="yearTwoChemistry">Chemistry</label>
+                                                    <input type="text" maxlength="2" class="form-control input-text" id="yearTwoChemistry" placeholder="Marks">
+                                                    <p class="text-danger" id="twoChemErrMsg"></p>
+                                                </div>
+                                                <!-- Physics Practical -->
+                                                <div class="d-block col-12 col-sm-6 col-lg-3 mb-4">
+                                                    <label class="m-0 input-label" for="yearTwoPhyPractical">Physics Practical</label>
+                                                    <input type="text" maxlength="2" class="form-control input-text" id="yearTwoPhyPractical" placeholder="Marks">
+                                                    <p class="text-danger" id="twoPhyPractErrMsg"></p>
+                                                </div>
+                                                <!--Chemistry Practical -->
+                                                <div class="d-block col-12 col-sm-6 col-lg-3 mb-4">
+                                                    <label class="m-0 input-label" for="yearTwoChemPractical">Chemistry Practical</label>
+                                                    <input type="text" maxlength="2" class="form-control input-text" id="yearTwoChemPractical" placeholder="Marks">
+                                                    <p class="text-danger" id="twoChemPractErrMsg"></p>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-12 mb-4 mt-2">
+                                                    <div class="text-center mb-4">
+                                                        <p class="text-danger" id="marksErrMsg"></p>
+                                                    </div>
+                                                    <div class="d-flex flex-row justify-content-center ">
+                                                        <button type="reset" id="resetFormBtn" class="btn btn-danger">Reset</button>
+                                                        <button type="submit" id="postResSubmitBtn" class="btn btn-success ml-4">Submit</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tab-pane fade"  id="updateResultsContainer"  role="tabpanel"  aria-labelledby="updateResultsBtn">
+                            <div class="update-results-content-section w-100">
+                                <div class="card p-3 shadow-2">
+                                    <form>
+                                        <div>
+                                            <div class="row">
+                                                <div class="mb-3 col-12">
+                                                    <h5 class="heading-title">Update Student Data</h5>
+                                                    <hr>
+                                                </div>
+                                                <div class="col-12 mb-3">
+                                                    <h5 class="heading-title">Choose what to update!</h5>
+                                                </div>
+                                                <div>
+                                                    <div class="select-main-container row">
+                                                        <div class="col-12 col-sm-4 mb-3 mb-sm-0">
+                                                            <div class=" select-container">
+                                                                <div class="form-control d-flex align-items-center justify-content-center">
+                                                                    <h5 class="heading-title m-0">Personal Details</h5>
+                                                                </div>
+                                                                <div class="option-container w-100 shadow-3 d-flex flex-column align-items-start">
+                                                                    <label class="input-text"><input id="uFatherName" type="checkbox" class="mr-2" >Father Name</label>
+                                                                    <label class="input-text"><input id="uMotherName" type="checkbox" class="mr-2" >Mother Name</label>
+                                                                    <label class="input-text"><input id="uMonthYrOfPass" type="checkbox" class="mr-2">Year & Month of pass</label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12 col-sm-4 mb-3 mb-sm-0">
+                                                            <div class=" select-container">
+                                                                <div class="form-control d-flex align-items-center justify-content-center">
+                                                                    <h5 class="heading-title m-0">Ⅰ Year Marks</h5>
+                                                                </div>
+                                                                <div class="option-container w-100 shadow-3 d-flex flex-column align-items-start">
+                                                                    <label class="input-text"><input id="uY1English" type="checkbox" class="mr-2">English</label>
+                                                                    <label class="input-text"><input id="uY1Sl" type="checkbox" class="mr-2">Sanskrit</label>
+                                                                    <label class="input-text"><input id="uY1MathsA" type="checkbox" class="mr-2">Maths A</label>
+                                                                    <label class="input-text"><input id="uY1MathsB" type="checkbox" class="mr-2">Maths B</label>
+                                                                    <label class="input-text"><input id="uY1Phy" type="checkbox" class="mr-2">Physics</label>
+                                                                    <label class="input-text"><input id="uY1Chem" type="checkbox" class="mr-2">Chemistry</label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12 col-sm-4 mb-3 mb-sm-0">
+                                                            <div class="select-container">
+                                                                <div class="form-control d-flex align-items-center justify-content-center">
+                                                                    <h5 class="heading-title m-0">Ⅱ Year Marks</h5>
+                                                                </div>
+                                                                <div class="option-container w-100 shadow-3 d-flex flex-column align-items-start">
+                                                                    <label class="input-text"><input id="uY2English" type="checkbox" class="mr-2">English</label>
+                                                                    <label class="input-text"><input id="uY2Sl" type="checkbox" class="mr-2">Sanskrit</label>
+                                                                    <label class="input-text"><input id="uY2MathsA" type="checkbox" class="mr-2">Maths A</label>
+                                                                    <label class="input-text"><input id="uY2MathsB" type="checkbox" class="mr-2">Maths B</label>
+                                                                    <label class="input-text"><input id="uY2Phy" type="checkbox" class="mr-2">Physics</label>
+                                                                    <label class="input-text"><input id="uY2Chem" type="checkbox" class="mr-2">Chemistry</label>
+                                                                    <label class="input-text"><input id="uY2PhyPractical" type="checkbox" class="mr-2">Physics Practical</label>
+                                                                    <label class="input-text"><input id="uY2ChemPractical" type="checkbox" class="mr-2">Chemistry Practical</label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <hr>
+                                                </div>
+                                                <div>
+                                                    <div class="row" id="updateBodyContainer">
+                                                        <!-- inputElements will be added dynamically -->
+                                                    </div>
+                                                </div>
+                                                <div id="submitContainer" class="d-none d-flex flex-row justify-content-center">
+                                                    <button class="btn btn-danger mr-3" type="">Clear</button>
+                                                    <button class="btn btn-success" type="">Submit</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div  class="tab-pane fade"  id="accessResultsContainer"  role="tabpanel"  aria-labelledby="accessResultsBtn">
+                            <div class="access-results-content-section w-100">
+                                <div class="card p-3 shadow-2 mb-4">
+                                    <form>
+                                        <div>
+                                            <div class="row">
+                                                <div class=" col-12">
+                                                    <h5 class="heading-title">Access Student Data</h5>
+                                                    <hr class="hr-line"/>
+                                                </div>
+                                                <div class="col-12 py-4 d-flex flex-row justify-content-center">
+                                                    <div class="d-flex flex-row">
+                                                        <input maxlength="10" type="text" id="accResultInput" class="form-control pr-1 input-text" placeholder="Enter Hallticket Number"/>
+                                                        <button id="accResSubmitBtn" type="button" class="btn btn-sm shadow-0 btn-primary ml-2 input-text"> SUBMIT</button>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12 text-center">
+                                                    <p class="text-danger" id="resReqErrMsg"></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="row d-none" id="resSpinner">
+                                    <div class="col-12 py-5">
+                                        <div class="d-flex justify-content-center">
+                                            <div class="spinner-border text-primary" role="status">
+                                            <span class="visually-hidden">Loading...</span>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="col-6 col-md-12  px-0 px-md-2">
-                                        <a class="nav-link mt-0 px-2" id="updateResultsBtn" data-mdb-toggle="pill"  href="#updateResultsContainer"  role="tab"  aria-controls="updateResultsContainer"  aria-selected="false">
-                                            Update results
-                                        </a>
+                                </div>
+                                <div class="card p-3 pb-5 shadow-2 d-none" id="resultContainer">
+                                    <div class="row">
+                                        <div class="col-12 mb-2 text-center mt-3">
+                                            <h5 class="heading-title">INTERMEDIATE STUDENT RESULTS</h5>
+                                            <hr class="hr-line" />
+                                        </div>
+                                        <div class="col-12">
+                                            <div class="d-flex flex-row justify-content-around">
+                                                <div class="input-text">
+                                                    <p>Name :  <strong id="resName"></strong></p>
+                                                    <p>Father Name :  <strong id="resFname"></strong></p>
+                                                    <p>Mother Name :  <strong id="resMname"></strong></p>
+                                                </div>
+                                                <div class="input-text">
+                                                    <p>Medium :  <strong id="resMedium"></strong></p>
+                                                    <p>Course :  <strong id="resCourse"></strong></p>
+                                                    <p>hallticket Number :  <strong id="resHT"></strong></p>
+                                                    <p>Month & Year of Passing :  <strong id="resMYpass"></strong></p>
+                                                </div>
+                                            </div>
+                                            <hr class="hr-line"/>
+                                        </div>
+                                        <div class="col-12 d-flex flex-column align-items-center justify-content-center px-3 px-md-5">
+                                            <h5 class="heading-title my-3">OBTAINED MARKS</h5>
+                                            <table style="border: 1px solid black; width: 100%; text-align: center;">
+                                                <tr>
+                                                    <th>SUBJECT</th>
+                                                    <th>Ⅰ YEAR MARKS</th>
+                                                    <th>Ⅱ YEAR MARKS</th>   
+                                                </tr>
+                                                <tr>
+                                                    <td>English</td>
+                                                    <td id="res1eng"></td>
+                                                    <td id="res2eng"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Sanskrit</td>
+                                                    <td id="res1SL"></td>
+                                                    <td id="res2SL"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Maths A</td>
+                                                    <td id="res1MA"></td>
+                                                    <td id="res2MA"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Maths B</td>
+                                                    <td id="res1MB"></td>
+                                                    <td id="res2MB"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Physics</td>
+                                                    <td id="res1phy"></td>
+                                                    <td id="res2phy"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Chemistry</td>
+                                                    <td id="res1chem"></td>
+                                                    <td id="res2chem"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Physics Practical</td>
+                                                    <td></td>
+                                                    <td id="res2PhyPract"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Chemistry Practical</td>
+                                                    <td></td>
+                                                    <td id="res2ChemPract"></td>
+                                                </tr>
+                                            </table>
+                                            <table class="mt-3 w-100">
+                                                <tr>
+                                                    <th id="resTotalMarks" class="w-50"></th>
+                                                    <th id="resGrade"></th>
+                                                </tr>
+                                            </table>
+                                        </div>                                   
                                     </div>
-                                    <div class="col-6 col-md-12  px-0 px-md-2">
-                                        <a class="nav-link mt-0 px-2 " id="accessResultsBtn" data-mdb-toggle="pill"  href="#accessResultsContainer"  role="tab"  aria-controls="accessResultsContainer"  aria-selected="false">  
-                                            Access results
-                                        </a>
-                                    </div>
-                                    <div class="col-6 col-md-12  px-0 px-md-2">
-                                        <a class="nav-link mt-0 px-2" id="deleteResultsBtn" data-mdb-toggle="pill"  href="#deleteResultsContainer"  role="tab"  aria-controls="deleteResultsContainer"  aria-selected="false">  
-                                            Delete results
-                                        </a>
-                                    </div>
-                                    <div class="col-6 col-md-12  px-0 px-md-2">
-                                        <a class="nav-link mt-0 px-2" id="studentListBtn" data-mdb-toggle="pill"  href="#studentListContainer"  role="tab"  aria-controls="deleteResultsContainer"  aria-selected="false">  
-                                            Students List
-                                        </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div  class="tab-pane fade"  id="deleteResultsContainer"  role="tabpanel"  aria-labelledby="deleteResultsBtn">
+                            <div class="delete-results-content-section w-100">
+                                <div class="card p-3 shadow-2">
+                                    <form>
+                                        <div>
+                                            <div class="row">
+                                                <div class="mb-3 col-12">
+                                                    <h5 class="heading-title">Delete Student Data</h5>
+                                                    <hr class="hr"/>
+                                                </div>
+                                                <div class="col-12 d-flex flex-column justify-content-center align-items-center">
+                                                    <h5 class="heading-title text-center my-4" for="studDataDelInput">ENTER STUDENT HALLTICKET NUMBER</h5>
+                                                    <div class="d-flex flex-row">
+                                                        <input type="text" maxlength="10" class="w-100 form-control input-text" id="studDataDelInput" placeholder="Enter Hallticket">
+                                                        <button class="btn btn-danger ml-2 btn-sm input-text shadow-0" id="delbtn">Submit</button>
+                                                    </div>
+                                                    <p class="text-center text-danger mt-4" id="delReqErrMsg"></p>
+                                                </div>
+                                                <!-- Button trigger modal -->
+                                                <div class="col-12 text-center">
+                                                </div>
+                                                <!-- Modal -->
+                                                <div class="modal fade" id="delConfirmModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                    <div class="modal-dialog modal-dialog-centered">
+                                                    <div class="modal-content">
+                                                        <div class="modal-body text-center">
+                                                            <h5 class="confirm-del-title mb-2" id="exampleModalLabel">CONFIRM DELETE</h5>
+                                                            <p class="cofirm-del-msg mb-0">Are you sure  you want to delete?</p>
+                                                        </div>
+                                                        <div class="modal-footer d-flex flex-row justify-content-center">
+                                                            <button type="button" class="btn btn-secondary btn-sm" data-mdb-dismiss="modal">Cancel</button>
+                                                            <button type="button" class="btn btn-danger btn-sm" id="delReqBtn" data-mdb-dismiss="modal">Delete</button>
+                                                        </div>
+                                                    </div>
+                                                    </div>
+                                                </div>
+                                                <!-- model end -->
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div  class="tab-pane fade"  id="studentListContainer"  role="tabpanel"  aria-labelledby="deleteResultsBtn">
+                            <div class="students-list-content-section w-100">
+                                <div class="card py-3 px-2 p-sm-3 shadow-2 ">
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <div class="row">
+                                                <div class="col-2 col-sm-2 text-center pl-0 pr-2 px-sm-2">
+                                                    <h6 class=" input-label">S N0</h6>
+                                                </div>
+                                                <div class="col-3 col-sm-3 text-center pl-0 pr-2 px-sm-2">
+                                                    <h6 class=" input-label">HALLTICKET</h6>
+                                                </div>
+                                                <div class="col-3 col-sm-3 text-left pl-0 pr-2 px-sm-2 text-sm-center">
+                                                    <h6 class=" input-label">NAME</h6>
+                                                </div>
+                                                <div class="col-2 col-sm-2 text-center pl-0 pr-2 px-sm-2">
+                                                    <h6 class=" input-label">MARKS</h6>
+                                                </div>
+                                                <div class="col-2 col-sm-2 text-center pl-0 pr-2 px-sm-2">
+                                                    <h6 class=" input-label">GRADE</h6>
+                                                </div>
+                                                <div class="col-12">
+                                                <hr class="mt-2">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 px-0" id="studentEachListContainer">
+                                            <div class="row d-none" id="stuListSpinner">
+                                                <div class="col-12 py-5">
+                                                    <div class="d-flex justify-content-center">
+                                                        <div class="spinner-border text-primary" role="status">
+                                                        <span class="visually-hidden">Loading...</span>
+                                                        </div>
+                                                    </div>
+                                                    <!-- Student list added dynamically -->
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-12 col-md-8 col-lg-9 pr-md-4 py-4 pl-md-0 content-container">
-                    <div class="row"> 
-                          <!-- Tab content -->
-                        <div class="tab-content" id="v-pills-tabContent">
-                            <div  class="tab-pane fade show active"  id="postResultsContainer"  role="tabpanel"  aria-labelledby="postResultsBtn">
-                                <div class="post-results-content-section w-100">
-                                    <div class="card p-3 shadow-2 ">
-                                        <form>
-                                            <div>
-                                                <!-- Student details -->
-                                                <div class="row">
-                                                    <div class="mb-3 col-12">
-                                                        <h5 class="heading-title">Enter Student Details</h5>
-                                                    </div>
-                                                    <!-- student name -->
-                                                    <div class="col-12 col-sm-6 col-lg-4 mb-4">
-                                                        <label class="m-0 input-label" for="studentName">Student Name</label>
-                                                        <input type="text" class="form-control input-text" id="studentName" placeholder="Enter full name">
-                                                        <p class="text-danger" id="stuNameErrMsg"></p>
-                                                    </div>
-                                                    <!-- father name -->
-                                                    <div class="col-12 col-sm-6 col-lg-4 mb-4">
-                                                        <label class="m-0 input-label" for="fatherName">Father Name</label>
-                                                        <input type="text" class="form-control input-text" id="fatherName" placeholder="Enter father name">
-                                                        <p class="text-danger" id="fatherNameErrMsg"></p>
-                                                    </div> 
-                                                    <!-- mother name -->
-                                                    <div class="col-12 col-sm-6 col-lg-4 mb-4">
-                                                        <label class="m-0 input-label" for="motherName">Mother Name</label>
-                                                        <input type="text" class="form-control input-text" id="motherName" placeholder="Enter mother name">
-                                                        <p class="text-danger" id="motherNameErrMsg"></p>
-                                                    </div>
-                                                    <!-- date of birth -->
-                                                    <div class="col-12 col-sm-6 col-lg-4 mb-4">
-                                                        <label class="m-0 input-label" for="dateOfBirth">Date Of Birth</label>
-                                                        <input type="date" class="form-control input-text" id="dateOfBirth">
-                                                        <p class="text-danger" id="dobErrMsg"></p>
-                                                    </div>
-                                                    <!-- selected course -->
-                                                    <div class="col-12 col-sm-6 col-lg-4 mb-4 ">
-                                                        <label class="m-0 input-label" for="courseSelectField">Course</label>
-                                                        <div class="p-0 form-control" style="overflow: hidden;">
-                                                            <select  id="courseSelectField" class="input-text w-100 m-0 pl-3" style="border: none;height: 100%;">
-                                                                <option value="MPC" selected>MPC</option>
-                                                                <option value="BiPC">BiPC</option>
-                                                                <option value="CEC">CEC</option>
-                                                                <option value="HEC">HEC</option>
-                                                            </select>
-                                                        </div>
-                                                    </div>
-                                                    <!-- month and year of pass -->
-                                                    <div class="col-12 col-sm-6 col-lg-4 mb-4">
-                                                        <label class="m-0 input-label" for="monthYearOfPass">Month & Year of passing</label>
-                                                        <input type="text" class="form-control input-text" id="monthYearOfPass" placeholder="Ex: MARCH 2024">
-                                                        <p class="text-danger" id="monthYearPassErrMsg"></p>
-                                                    </div>
-                                                    <div class="col-12 col-sm-6 col-lg-4 mb-4 ">
-                                                        <label class="m-0 input-label" for="languageMedium">Medium</label>
-                                                        <div class="p-0 form-control" style="overflow: hidden;">
-                                                            <select name="" id="languageMedium" class="input-text w-100 m-0 pl-3" style="border: none;height: 100%;">
-                                                                <option value="ENGLISH" selected>ENGLISH</option>
-                                                                <option value="URDU">URDU</option>
-                                                            </select>
-                                                        </div>
-                                                    </div>
-                                                    
-                                                </div>
-                                                <hr class="hr">
-                                                <!--1st year Student marks -->
-                                                <div class="row">
-                                                    <div class="mb-3 col-12">
-                                                        <h5 class="heading-title">Enter Marks Obtained</h5>
-                                                    </div>
-                                                    <!--Hallticket Number-->
-                                                    <div class="row m-0 p-0 mb-4">
-                                                        <div class="d-block col-12 col-lg-4">
-                                                            <label class="m-0 input-label" for="HallticketNumber">Hallticket Number</label>
-                                                            <input type="text" maxlength="10" class="form-control input-text" id="HallticketNumber" placeholder="Enter hallticket number">
-                                                            <p class="text-danger" id="htErrMsg"></p>
-                                                        </div> 
-                                                    </div>
-                                                    <div class="mb-3 col-12">
-                                                        <h5 class="heading-title">&#8544; YEAR MARKS</h5>
-                                                    </div>
-                                                    <!--1st year Student marks -->
-                                                    <!-- English -->
-                                                    <div class="d-block col-12 col-sm-6 col-lg-3 mb-4">
-                                                        <label class="m-0 input-label" for="yearOneEnglish">English</label>
-                                                        <input type="text" maxlength="3" class="form-control input-text" id="yearOneEnglish" placeholder="Marks">
-                                                        <p class="text-danger" id="oneEngErrMsg"></p>
-                                                    </div>
-                                                    <!-- Second language -->
-                                                    <div class="d-block col-12 col-sm-6 col-lg-6 mb-4">
-                                                        <label class="m-0 input-label" for="yearOneSecondLang">Second language</label>
-                                                        <div class="form-control d-flex flex-row justify-content-evenly p-0" style="overflow: hidden;">
-                                                            <select id="yearOneSecondLang" style="border: none;height: 100%;" class="w-50 px-2 input-text mr-2">
-                                                                <option value="Sanskrit" selected>Sanskrit</option>
-                                                                <option value="Urdu">Urdu</option>
-                                                            </select>
-                                                            <input id="yearOneSLMarks" maxlength="3" type="text" class="input-text pl-3 w-50 shadow-inner form-control" placeholder="Marks" style="border: none;height: 100%;">
-                                                        </div>
-                                                        <p class="text-danger" id="oneSlErrMsg"></p>
-                                                    </div>
-                                                    <!-- Maths A -->
-                                                    <div class="d-block col-12 col-sm-6 col-lg-3 mb-4">
-                                                        <label class="m-0 input-label" for="yearOneMathsA">Maths A</label>
-                                                        <input type="text" maxlength="2" class="form-control input-text" id="yearOneMathsA" placeholder="Marks">
-                                                        <p class="text-danger" id="oneMaErrMsg"></p>
-                                                    </div>
-                                                    <!-- Maths B -->
-                                                    <div class="d-block col-12 col-sm-6 col-lg-3 mb-4">
-                                                        <label class="m-0 input-label" for="yearOneMathsB">Maths B</label>
-                                                        <input type="text" maxlength="2" class="form-control input-text" id="yearOneMathsB" placeholder="Marks">
-                                                        <p class="text-danger" id="oneMbErrMsg"></p>
-                                                    </div>
-                                                    <!-- Physics -->
-                                                    <div class="d-block col-12 col-sm-6 col-lg-3 mb-4">
-                                                        <label class="m-0 input-label" for="yearonePhysics">Physics</label>
-                                                        <input type="text" maxlength="2" class="form-control input-text" id="yearonePhysics" placeholder="Marks">
-                                                        <p class="text-danger" id="onePhyErrMsg"></p>
-                                                    </div>
-                                                    <!-- Chemistry -->
-                                                    <div class="d-block col-12 col-sm-6 col-lg-3 mb-4">
-                                                        <label class="m-0 input-label" for="yearoneChemistry">Chemistry</label>
-                                                        <input type="text" maxlength="2" class="form-control input-text" id="yearoneChemistry" placeholder="Marks">
-                                                        <p class="text-danger" id="oneChemErrMsg"></p>
-                                                    </div>
-                                                </div>
-                                                <hr class="hr">
-                                                <!--2st year Student marks -->
-                                                <div class="row">
-                                                    <div class="mb-3 col-12">
-                                                        <h5 class="heading-title">&#8545; YEAR MARKS</h5>
-                                                    </div>
-                                                    <!-- English -->
-                                                    <div class="d-block col-12 col-sm-6 col-sm-6 col-lg-3 mb-4">
-                                                        <label class="m-0 input-label" for="yearTwoEnglish">English</label>
-                                                        <input type="text" maxlength="3" class="form-control input-text" id="yearTwoEnglish" placeholder="Marks">
-                                                        <p class="text-danger" id="twoEngErrMsg"></p>
-                                                    </div>
-                                                    <!-- Second language -->
-                                                    <div class="d-block col-12 col-sm-6 col-lg-6 mb-4">
-                                                        <label class="m-0 input-label" for="yearTwoSecondLang">Second language</label>
-                                                        <div class="form-control d-flex flex-row justify-content-evenly p-0" style="overflow: hidden;">
-                                                            <select id="yearTwoSecondLang" style="border: none;height: 100%;" class="w-50 px-2 input-text mr-2">
-                                                                <option value="Sanskrit" selected>Sanskrit</option>
-                                                                <option value="Urdu">Urdu</option>
-                                                            </select>
-                                                            <input id="yearTwoSLMarks" maxlength="3" type="text" class="input-text pl-3 w-50 shadow-inner form-control" placeholder="Marks" style="border: none;height: 100%;">
-                                                        </div>
-                                                        <p class="text-danger" id="twoSlErrMsg"></p>
-                                                    </div>
-                                                    <!-- Maths A -->
-                                                    <div class="d-block col-12 col-sm-6 col-lg-3 mb-4">
-                                                        <label class="m-0 input-label" for="yearTwoMathsA">Maths A</label>
-                                                        <input type="text" maxlength="2" class="form-control input-text" id="yearTwoMathsA" placeholder="Marks">
-                                                        <p class="text-danger" id="twoMaErrMsg"></p>
-                                                    </div>
-                                                     <!-- Maths B -->
-                                                    <div class="d-block col-12 col-sm-6 col-lg-3 mb-4">
-                                                        <label class="m-0 input-label" for="yearTwoMathsB">Maths B</label>
-                                                        <input type="text" maxlength="2" class="form-control input-text" id="yearTwoMathsB" placeholder="Marks">
-                                                        <p class="text-danger" id="twoMbErrMsg"></p>
-                                                    </div>
-                                                     <!-- Physics -->
-                                                    <div class="d-block col-12 col-sm-6 col-lg-3 mb-4">
-                                                        <label class="m-0 input-label" for="yearTwoPhysics">Physics</label>
-                                                        <input type="text" maxlength="2" class="form-control input-text" id="yearTwoPhysics" placeholder="Marks">
-                                                        <p class="text-danger" id="twoPhyErrMsg"></p>
-                                                    </div>
-                                                     <!-- Chemistry -->
-                                                    <div class="d-block col-12 col-sm-6 col-lg-3 mb-4">
-                                                        <label class="m-0 input-label" for="yearTwoChemistry">Chemistry</label>
-                                                        <input type="text" maxlength="2" class="form-control input-text" id="yearTwoChemistry" placeholder="Marks">
-                                                        <p class="text-danger" id="twoChemErrMsg"></p>
-                                                    </div>
-                                                     <!-- Physics Practical -->
-                                                    <div class="d-block col-12 col-sm-6 col-lg-3 mb-4">
-                                                        <label class="m-0 input-label" for="yearTwoPhyPractical">Physics Practical</label>
-                                                        <input type="text" maxlength="2" class="form-control input-text" id="yearTwoPhyPractical" placeholder="Marks">
-                                                        <p class="text-danger" id="twoPhyPractErrMsg"></p>
-                                                    </div>
-                                                     <!--Chemistry Practical -->
-                                                    <div class="d-block col-12 col-sm-6 col-lg-3 mb-4">
-                                                        <label class="m-0 input-label" for="yearTwoChemPractical">Chemistry Practical</label>
-                                                        <input type="text" maxlength="2" class="form-control input-text" id="yearTwoChemPractical" placeholder="Marks">
-                                                        <p class="text-danger" id="twoChemPractErrMsg"></p>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-12 mb-4 mt-2">
-                                                        <div class="text-center mb-4">
-                                                            <p class="text-danger" id="marksErrMsg"></p>
-                                                        </div>
-                                                        <div class="d-flex flex-row justify-content-center ">
-                                                            <button type="reset" id="resetFormBtn" class="btn btn-danger">Reset</button>
-                                                            <button type="submit" id="postResSubmitBtn" class="btn btn-success ml-4">Submit</button>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="tab-pane fade"  id="updateResultsContainer"  role="tabpanel"  aria-labelledby="updateResultsBtn">
-                                <div class="update-results-content-section w-100">
-                                    <div class="card p-3 shadow-2">
-                                        <form>
-                                            <div>
-                                                <div class="row">
-                                                    <div class="mb-3 col-12">
-                                                        <h5 class="heading-title">Update Student Data</h5>
-                                                        <hr>
-                                                    </div>
-                                                    <div class="col-12 mb-3">
-                                                        <h5 class="heading-title">Choose what to update!</h5>
-                                                    </div>
-                                                    <div>
-                                                        <div class="select-main-container row">
-                                                            <div class="col-12 col-sm-4 mb-3 mb-sm-0">
-                                                                <div class=" select-container">
-                                                                    <div class="form-control d-flex align-items-center justify-content-center">
-                                                                        <h5 class="heading-title m-0">Personal Details</h5>
-                                                                    </div>
-                                                                    <div class="option-container w-100 shadow-3 d-flex flex-column align-items-start">
-                                                                        <label class="input-text"><input type="checkbox" class="mr-2">Father Name</label>
-                                                                        <label class="input-text"><input type="checkbox" class="mr-2">Mother Name</label>
-                                                                        <label class="input-text"><input type="checkbox" class="mr-2">Year & Month of pass</label>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-12 col-sm-4 mb-3 mb-sm-0">
-                                                                <div class=" select-container">
-                                                                    <div class="form-control d-flex align-items-center justify-content-center">
-                                                                        <h5 class="heading-title m-0">Ⅰ Year Marks</h5>
-                                                                    </div>
-                                                                    <div class="option-container w-100 shadow-3 d-flex flex-column align-items-start">
-                                                                        <label class="input-text"><input type="checkbox" class="mr-2">English</label>
-                                                                        <label class="input-text"><input type="checkbox" class="mr-2">Sanskrit</label>
-                                                                        <label class="input-text"><input type="checkbox" class="mr-2">Maths A</label>
-                                                                        <label class="input-text"><input type="checkbox" class="mr-2">Maths B</label>
-                                                                        <label class="input-text"><input type="checkbox" class="mr-2">Physics</label>
-                                                                        <label class="input-text"><input type="checkbox" class="mr-2">Chemistry</label>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-12 col-sm-4 mb-3 mb-sm-0">
-                                                                <div class=" select-container">
-                                                                    <div class="form-control d-flex align-items-center justify-content-center">
-                                                                        <h5 class="heading-title m-0">Ⅱ Year Marks</h5>
-                                                                    </div>
-                                                                    <div class="option-container w-100 shadow-3 d-flex flex-column align-items-start">
-                                                                        <label class="input-text"><input type="checkbox" class="mr-2">English</label>
-                                                                        <label class="input-text"><input type="checkbox" class="mr-2">Sanskrit</label>
-                                                                        <label class="input-text"><input type="checkbox" class="mr-2">Maths A</label>
-                                                                        <label class="input-text"><input type="checkbox" class="mr-2">Maths B</label>
-                                                                        <label class="input-text"><input type="checkbox" class="mr-2">Physics</label>
-                                                                        <label class="input-text"><input type="checkbox" class="mr-2">Chemistry</label>
-                                                                        <label class="input-text"><input type="checkbox" class="mr-2">Physics Practical</label>
-                                                                        <label class="input-text"><input type="checkbox" class="mr-2">Chemistry Practical</label>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <hr>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div  class="tab-pane fade"  id="accessResultsContainer"  role="tabpanel"  aria-labelledby="accessResultsBtn">
-                                <div class="access-results-content-section w-100">
-                                    <div class="card p-3 shadow-2 mb-4">
-                                        <form>
-                                            <div>
-                                                <div class="row">
-                                                    <div class=" col-12">
-                                                        <h5 class="heading-title">Access Student Data</h5>
-                                                        <hr class="hr-line"/>
-                                                    </div>
-                                                    <div class="col-12 py-4 d-flex flex-row justify-content-center">
-                                                        <div class="d-flex flex-row">
-                                                            <input maxlength="10" type="text" id="accResultInput" class="form-control pr-1 input-text" placeholder="Enter Hallticket Number"/>
-                                                            <button id="accResSubmitBtn" type="button" class="btn btn-sm shadow-0 btn-primary ml-2 input-text"> SUBMIT</button>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-12 text-center">
-                                                        <p class="text-danger" id="resReqErrMsg"></p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </form>
-                                    </div>
-                                    <div class="row d-none" id="resSpinner">
-                                        <div class="col-12 py-5">
-                                            <div class="d-flex justify-content-center">
-                                                <div class="spinner-border text-primary" role="status">
-                                                  <span class="visually-hidden">Loading...</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="card p-3 pb-5 shadow-2 d-none" id="resultContainer">
-                                        <div class="row">
-                                            <div class="col-12 mb-2 text-center mt-3">
-                                                <h5 class="heading-title">INTERMEDIATE STUDENT RESULTS</h5>
-                                                <hr class="hr-line" />
-                                            </div>
-                                            <div class="col-12">
-                                                <div class="d-flex flex-row justify-content-around">
-                                                    <div class="input-text">
-                                                        <p>Name :  <strong id="resName"></strong></p>
-                                                        <p>Father Name :  <strong id="resFname"></strong></p>
-                                                        <p>Mother Name :  <strong id="resMname"></strong></p>
-                                                    </div>
-                                                    <div class="input-text">
-                                                        <p>Medium :  <strong id="resMedium"></strong></p>
-                                                        <p>Course :  <strong id="resCourse"></strong></p>
-                                                        <p>hallticket Number :  <strong id="resHT"></strong></p>
-                                                        <p>Month & Year of Passing :  <strong id="resMYpass"></strong></p>
-                                                    </div>
-                                                </div>
-                                                <hr class="hr-line"/>
-                                            </div>
-                                            <div class="col-12 d-flex flex-column align-items-center justify-content-center px-3 px-md-5">
-                                                <h5 class="heading-title my-3">OBTAINED MARKS</h5>
-                                                <table style="border: 1px solid black; width: 100%; text-align: center;">
-                                                    <tr>
-                                                        <th>SUBJECT</th>
-                                                        <th>Ⅰ YEAR MARKS</th>
-                                                        <th>Ⅱ YEAR MARKS</th>   
-                                                    </tr>
-                                                    <tr>
-                                                        <td>English</td>
-                                                        <td id="res1eng"></td>
-                                                        <td id="res2eng"></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Sanskrit</td>
-                                                        <td id="res1SL"></td>
-                                                        <td id="res2SL"></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Maths A</td>
-                                                        <td id="res1MA"></td>
-                                                        <td id="res2MA"></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Maths B</td>
-                                                        <td id="res1MB"></td>
-                                                        <td id="res2MB"></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Physics</td>
-                                                        <td id="res1phy"></td>
-                                                        <td id="res2phy"></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Chemistry</td>
-                                                        <td id="res1chem"></td>
-                                                        <td id="res2chem"></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Physics Practical</td>
-                                                        <td></td>
-                                                        <td id="res2PhyPract"></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Chemistry Practical</td>
-                                                        <td></td>
-                                                        <td id="res2ChemPract"></td>
-                                                    </tr>
-                                                </table>
-                                                <table class="mt-3 w-100">
-                                                    <tr>
-                                                        <th id="resTotalMarks" class="w-50"></th>
-                                                        <th id="resGrade"></th>
-                                                    </tr>
-                                                </table>
-                                            </div>                                   
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div  class="tab-pane fade"  id="deleteResultsContainer"  role="tabpanel"  aria-labelledby="deleteResultsBtn">
-                                <div class="delete-results-content-section w-100">
-                                    <div class="card p-3 shadow-2">
-                                        <form>
-                                            <div>
-                                                <div class="row">
-                                                    <div class="mb-3 col-12">
-                                                        <h5 class="heading-title">Delete Student Data</h5>
-                                                        <hr class="hr"/>
-                                                    </div>
-                                                    <div class="col-12 d-flex flex-column justify-content-center align-items-center">
-                                                        <h5 class="heading-title text-center my-4" for="studDataDelInput">ENTER STUDENT HALLTICKET NUMBER</h5>
-                                                        <div class="d-flex flex-row">
-                                                            <input type="text" maxlength="10" class="w-100 form-control input-text" id="studDataDelInput" placeholder="Enter Hallticket">
-                                                            <button class="btn btn-danger ml-2 btn-sm input-text shadow-0" id="delbtn">Submit</button>
-                                                        </div>
-                                                        <p class="text-center text-danger mt-4" id="delReqErrMsg"></p>
-                                                    </div>
-                                                    <!-- Button trigger modal -->
-                                                    <div class="col-12 text-center">
-                                                    </div>
-                                                    <!-- Modal -->
-                                                    <div class="modal fade" id="delConfirmModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                                        <div class="modal-dialog modal-dialog-centered">
-                                                        <div class="modal-content">
-                                                            <div class="modal-body text-center">
-                                                                <h5 class="confirm-del-title mb-2" id="exampleModalLabel">CONFIRM DELETE</h5>
-                                                                <p class="cofirm-del-msg mb-0">Are you sure  you want to delete?</p>
-                                                            </div>
-                                                            <div class="modal-footer d-flex flex-row justify-content-center">
-                                                                <button type="button" class="btn btn-secondary btn-sm" data-mdb-dismiss="modal">Cancel</button>
-                                                                <button type="button" class="btn btn-danger btn-sm" id="delReqBtn" data-mdb-dismiss="modal">Delete</button>
-                                                            </div>
-                                                        </div>
-                                                        </div>
-                                                    </div>
-                                                    <!-- model end -->
-                                                </div>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div  class="tab-pane fade"  id="studentListContainer"  role="tabpanel"  aria-labelledby="deleteResultsBtn">
-                                <div class="students-list-content-section w-100">
-                                    <div class="card py-3 px-2 p-sm-3 shadow-2 ">
-                                        <div class="row">
-                                            <div class="col-12">
-                                                <div class="row">
-                                                    <div class="col-2 col-sm-2 text-center pl-0 pr-2 px-sm-2">
-                                                        <h6 class=" input-label">S N0</h6>
-                                                    </div>
-                                                    <div class="col-3 col-sm-3 text-center pl-0 pr-2 px-sm-2">
-                                                        <h6 class=" input-label">HALLTICKET</h6>
-                                                    </div>
-                                                    <div class="col-3 col-sm-3 text-left pl-0 pr-2 px-sm-2 text-sm-center">
-                                                        <h6 class=" input-label">NAME</h6>
-                                                    </div>
-                                                    <div class="col-2 col-sm-2 text-center pl-0 pr-2 px-sm-2">
-                                                        <h6 class=" input-label">MARKS</h6>
-                                                    </div>
-                                                    <div class="col-2 col-sm-2 text-center pl-0 pr-2 px-sm-2">
-                                                        <h6 class=" input-label">GRADE</h6>
-                                                    </div>
-                                                   <div class="col-12">
-                                                    <hr class="mt-2">
-                                                   </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-12 px-0" id="studentEachListContainer">
-                                                <div class="row d-none" id="stuListSpinner">
-                                                    <div class="col-12 py-5">
-                                                        <div class="d-flex justify-content-center">
-                                                            <div class="spinner-border text-primary" role="status">
-                                                              <span class="visually-hidden">Loading...</span>
-                                                            </div>
-                                                        </div>
-                                                        <!-- Student list added dynamically -->
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                      </div>
                 </div>
             </div>
         </div>

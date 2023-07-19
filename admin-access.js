@@ -150,40 +150,43 @@ function updateData(studentInfo, parsedYearOneMarks, parsedYearTwoMarks){
     }
     
 
-    let postMethod = {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-        },
-        body: JSON.stringify(studentData)
-    };
-
-    let hostUrl = "https://kind-plum-woolens.cyclic.app/studentData";
-
-    fetch(hostUrl, postMethod)
-    .then((response)=>{
-        console.log(response.ok);
-        return response.json();
-    })
-    .then((jsonData)=>{
-        let responseMsg = jsonData.message;
-        if(responseMsg === "Data added successfully!"){
+    async function postData() {
+        try {
+          let postMethod = {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              Accept: "application/json",
+            },
+            body: JSON.stringify(studentData),
+          };
+      
+          let hostUrl = "https://kind-plum-woolens.cyclic.app/studentData";
+      
+          const response = await fetch(hostUrl, postMethod);
+          console.log(response.ok);
+          const jsonData = await response.json();
+      
+          let responseMsg = jsonData.message;
+          if (responseMsg === "Data added successfully!") {
             marksErrMsg.textContent = "Data Submitted Successfully!";
             marksErrMsg.classList.add("text-success");
-        }else if(responseMsg === "Hallticket value must be unique"){
-            if(marksErrMsg.classList.contains("text-success")){
-                marksErrMsg.classList.remove("text-success");
+          } else if (responseMsg === "Hallticket value must be unique") {
+            if (marksErrMsg.classList.contains("text-success")) {
+              marksErrMsg.classList.remove("text-success");
             }
-            marksErrMsg.textContent = `The student with ${studentInfo[7]} hallticket number already exist in our database.`
-        }else{
+            marksErrMsg.textContent = `The student with ${studentInfo[7]} hallticket number already exists in our database.`;
+          } else {
             marksErrMsg.textContent = jsonData.message;
+          }
+        } catch (error) {
+          alert("An error occurred while fetching the data: " + error.message);
+          console.error(error);
         }
-    })
-    .catch((error) => {
-        alert("An error occurred while fetching the data: " + error.message);
-        console.error(error);
-    });
+      }
+      
+      postData();
+      
   
 }
 
@@ -297,35 +300,42 @@ resetFormBtn.addEventListener("click", ()=>{
 
 
 function delStudentData(delReqErrMsg, stuDelHT){
-    let dbUrl = `https://kind-plum-woolens.cyclic.app/studentData/${stuDelHT}`;
-
-    let deleteMethod = {
-        method: "DELETE",
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-        }
-    };
-    
-    fetch(dbUrl, deleteMethod)
-    .then((response)=>{
-        return response.json();
-    })
-    .then((jsonData)=>{
-        console.log(jsonData);
-        let responseMsg = jsonData.message;
-        if(responseMsg === "Data deleted successfully!"){
+    async function deleteData() {
+        try {
+          let dbUrl = `https://kind-plum-woolens.cyclic.app/studentData/${stuDelHT}`;
+      
+          let deleteMethod = {
+            method: "DELETE",
+            headers: {
+              "Content-Type": "application/json",
+              Accept: "application/json",
+            },
+          };
+      
+          const response = await fetch(dbUrl, deleteMethod);
+          const jsonData = await response.json();
+      
+          console.log(jsonData);
+          let responseMsg = jsonData.message;
+          if (responseMsg === "Data deleted successfully!") {
             delReqErrMsg.textContent = "Student data deleted successfully!";
             delReqErrMsg.classList.add("text-success");
-        }else if(responseMsg === "Entry not found"){
-            if(delReqErrMsg.classList.contains("text-success")){
-                delReqErrMsg.classList.remove("text-success");
+          } else if (responseMsg === "Entry not found") {
+            if (delReqErrMsg.classList.contains("text-success")) {
+              delReqErrMsg.classList.remove("text-success");
             }
-            delReqErrMsg.textContent = `The student with ${stuDelHT} hallticket number does not exist in our database.`
-        }else{
+            delReqErrMsg.textContent = `The student with ${stuDelHT} hallticket number does not exist in our database.`;
+          } else {
             delReqErrMsg.textContent = jsonData.message;
+          }
+        } catch (error) {
+          alert("An error occurred while deleting the data: " + error.message);
+          console.error(error);
         }
-    })
+    }
+    
+    deleteData();
+      
 }
 
 
@@ -379,6 +389,116 @@ delbtn.addEventListener("click", (e)=>{
 })
 
 
+
+// -----------------------Update Results -------------------------------------------------------------------
+
+let uFatherName = document.getElementById("uFatherName");
+let uMotherName = document.getElementById("uMotherName");
+let uMonthYrOfPass = document.getElementById("uMonthYrOfPass");
+
+let uY1English = document.getElementById("uY1English");
+let uY1Sl = document.getElementById("uY1Sl");
+let uY1MathsA = document.getElementById("uY1MathsA");
+let uY1MathsB = document.getElementById("uY1MathsB");
+let uY1Phy = document.getElementById("uY1Phy");
+let uY1Chem = document.getElementById("uY1Chem");
+
+let uY2English = document.getElementById("uY2English");
+let uY2Sl = document.getElementById("uY2Sl");
+let uY2MathsA = document.getElementById("uY2MathsA");
+let uY2MathsB = document.getElementById("uY2MathsB");
+let uY2Phy = document.getElementById("uY2Phy");
+let uY2Chem = document.getElementById("uY2Chem");
+let uY2PhyPractical = document.getElementById("uY2PhyPractical");
+let uY2ChemPractical = document.getElementById("uY2ChemPractical");
+
+let availToUpdateList = [uFatherName,uMotherName,uMonthYrOfPass,
+    uY1English,uY1Sl,uY1MathsA,uY1MathsB,uY1Phy,uY1Chem,
+    uY2English,uY2Sl,uY2MathsA,uY2MathsB,uY2Phy,uY2Chem,uY2PhyPractical,uY2ChemPractical
+]
+let availToUpdateListIds = ["uFatherNameInput","uMotherNameInpt","uMonthYrOfPassInput",
+    "uY1EnglishInput","uY1SlInput","uY1MathsAInput","uY1MathsBInput","uY1PhyInput","uY1ChemInput",
+    "uY2EnglishInput","uY2SlInput","uY2MathsAInput","uY2MathsBInput","uY2PhyInput","uY2ChemInput","uY2PhyPracticalInput","uY2ChemPracticalInput"
+]
+
+let inputElPlaceholders = [
+    "Enter Father Name",
+    "Enter Mother Name",
+    "Enter Month and Year of Pass",
+    "Enter Year Ⅰ English Marks ",
+    "Enter Year Ⅰ Second Language Marks ",
+    "Enter Year Ⅰ Maths A Marks ",
+    "Enter Year Ⅰ Maths B Marks ",
+    "Enter Year Ⅰ Physics Marks ",
+    "Enter Year Ⅱ Chemistry Marks ",
+    "Enter Year Ⅱ English Marks ",
+    "Enter Year Ⅱ Second Language Marks ",
+    "Enter Year Ⅱ Maths A Marks ",
+    "Enter Year Ⅱ Maths B Marks ",
+    "Enter Year Ⅱ Physics Marks ",
+    "Enter Year Ⅱ Chemistry Marks ",
+    "Enter Year Ⅱ Physics Practical Marks ",
+    "Enter Year Ⅱ Chemistry Practical Marks ",
+]
+
+let inputElements = {};
+
+function addInputElement(inputElId, placeholder) {
+  let updateBodyContainer = document.getElementById("updateBodyContainer");
+
+  let inputContainer = document.createElement("div");
+  inputContainer.classList.add("col-12", "col-sm-6", "col-lg-4", "mb-4");
+  updateBodyContainer.appendChild(inputContainer);
+
+  let inputEl = document.createElement("input");
+  inputEl.setAttribute("type", "text");
+  inputEl.setAttribute("id", inputElId);
+  inputEl.setAttribute("placeholder", placeholder);
+  inputEl.classList.add("form-control", "input-text");
+  inputContainer.appendChild(inputEl);
+
+  inputElements[inputElId] = inputContainer;
+}
+
+function removeInputElement(inputElId) {
+  let container = inputElements[inputElId];
+  if (container) {
+    container.remove();
+    delete inputElements[inputElId];
+  }
+}
+
+let checkedItems = [];
+
+for (let i = 0; i < availToUpdateList.length; i++) {
+    (function (inputElId) {
+        availToUpdateList[i].addEventListener("change", () => {
+        if (availToUpdateList[i].checked === true) {
+            let placeholder = inputElPlaceholders[i];
+            checkedItems.push(availToUpdateListIds[i])
+            addInputElement(inputElId, placeholder);
+        } else {
+            removeInputElement(inputElId);
+            
+            let index = checkedItems.indexOf(inputElId)
+            checkedItems.splice(index,1);
+            // console.log(checkedItems.slice(index, index + 1))
+        }
+        console.log(checkedItems)
+
+        if(checkedItems.length >= 1){
+            document.getElementById("submitContainer").classList.remove("d-none")
+        }else{
+            document.getElementById("submitContainer").classList.add("d-none")
+
+        }
+        
+    });
+})(availToUpdateListIds[i]);
+}
+
+
+
 // method put or update ----------------------------------------------------------------
 
 
@@ -412,41 +532,7 @@ delbtn.addEventListener("click", (e)=>{
 //     .then((jsonData) => {
 //       console.log(jsonData);
 //     });
-
-
-// Assuming you have the hallticket value and the new father_name value
-// const hallticket = '1987654321';
-// const newFatherName = 'John Doe';
-
-// fetch(updateUrl, {
-//   method: 'PUT',
-//   headers: {
-//     'Content-Type': 'application/json',
-//   },
-//   body: JSON.stringify({
-//     student_details: {
-//       father_name: newFatherName,
-//     },
-//   }),
-// })
-//   .then(response => response.json())
-//   .then(data => {
-//     console.log(data.message); // Success message
-//     // Handle any additional logic after successful update
-//   })
-//   .catch(error => {
-//     console.error('Error:', error);
-//     // Handle any error that occurred during the update
-//   });
-
-
-
-
-
-
-// method delete -----------------------------------------------------------------------------------------------
-
-
+  
 // -----------------------Access Results -------------------------------------------------------------------
 
 let accResultInput = document.getElementById("accResultInput");
@@ -525,33 +611,43 @@ function getResult(){
     }
 
 
-    let getMethod = {
-        method: "GET"
-    }
-    let getResURL = `https://kind-plum-woolens.cyclic.app/studentData/${parseInt(accResultInput.value)}`;
-
-    fetch(getResURL, getMethod)
-    .then((response)=>{
-        return response.json();
-    })
-    .then((jsonData)=>{
-        console.log(jsonData);
-
-        let responseMsg = jsonData.message;
-        if(responseMsg === "Entry retrieved successfully!"){
+    async function getData() {
+        try {
+          let getMethod = {
+            method: "GET",
+          };
+      
+          let getResURL = `https://kind-plum-woolens.cyclic.app/studentData/${parseInt(
+            accResultInput.value
+          )}`;
+      
+          const response = await fetch(getResURL, getMethod);
+          const jsonData = await response.json();
+      
+          console.log(jsonData);
+      
+          let responseMsg = jsonData.message;
+          if (responseMsg === "Entry retrieved successfully!") {
             resReqErrMsg.textContent = "";
             setResults(jsonData);
             resSpinner.classList.add("d-none");
             resultContainer.classList.remove("d-none");
-        }else{
-            if(responseMsg === "Entry not found"){
-                resSpinner.classList.add("d-none");
-                resReqErrMsg.textContent = `The student with ${accResultInput.value} hallticket number does not exist in our database.`
-            }else{
-                resReqErrMsg.textContent = jsonData.message;
+          } else {
+            if (responseMsg === "Entry not found") {
+              resSpinner.classList.add("d-none");
+              resReqErrMsg.textContent = `The student with ${accResultInput.value} hallticket number does not exist in our database.`;
+            } else {
+              resReqErrMsg.textContent = jsonData.message;
             }
+          }
+        } catch (error) {
+          alert("An error occurred while fetching the data: " + error.message);
+          console.error(error);
         }
-    })
+    }
+    
+    getData();
+      
 }
 
 accResSubmitBtn.addEventListener("click",()=>{
@@ -624,23 +720,30 @@ function appendEachStudent(eachStudent, serialNumber){
 
 function loopStudentData(){
     document.getElementById("stuListSpinner").classList.remove("d-none")
-    let getMethod = {
-        method: "GET"
-    }
-    let hostUrl = "https://kind-plum-woolens.cyclic.app/studentData";
-    
-    fetch(hostUrl, getMethod)
-    .then((response)=>{
-        return response.json();
-    })
-    .then((jsonData)=>{
-
-        console.log(jsonData);
-        for(let i = 0; i < jsonData.length; i++){
-            appendEachStudent(jsonData[i], (i + 1));
+    async function getData() {
+        try {
+          let getMethod = {
+            method: "GET",
+          };
+      
+          let hostUrl = "https://kind-plum-woolens.cyclic.app/studentData";
+      
+          const response = await fetch(hostUrl, getMethod);
+          const jsonData = await response.json();
+      
+          console.log(jsonData);
+          for (let i = 0; i < jsonData.length; i++) {
+            appendEachStudent(jsonData[i], i + 1);
+          }
+          document.getElementById("stuListSpinner").classList.add("d-none");
+        } catch (error) {
+          alert("An error occurred while fetching the data: " + error.message);
+          console.error(error);
         }
-        document.getElementById("stuListSpinner").classList.add("d-none")
-    })
+    }
+    
+    getData();
+    
 }
 
 loopStudentData();
